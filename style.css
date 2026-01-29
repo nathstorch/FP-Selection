@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+    /*tira o scroll da tela*/
+}
+
+header {
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    /*ajusta na horizontal, eixo X*/
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 600px;
+    /*um item ocupa 1 fração da tela e o outro 600px*/
+    gap: 10%;
+    /*espacamento entre os itens*/
+    z-index: 2;
+
+    & img {
+        /*vc seleciona o que quer estilizar*/
+        width: 250px;
+    }
+
+    & nav {
+        & ul {
+            display: grid;
+            grid-template-columns: repeat(3, 200px);
+            /*ao ives de escrever "1fr" 3x*/
+        }
+    }
+}
+
+section {
+    background-image: radial-gradient(#7f3d9e, #6d00d9);
+    height: 100vh;
+    position: relative;
+
+    & .list {
+        width: 70vw;
+        height: 100%;
+        margin: auto;
+        /*centraliza*/
+        position: relative;
+
+        & .item {
+            position: absolute;
+            /*vai ser colocado exatamente na posição que eu quero*/
+            inset: 0;
+
+            & .car-img {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                /*ajusta na vertical, eixo Y*/
+                width: 70%;
+
+                & img {
+                    width: 100%;
+                    transform: rotate(-30deg);
+                }
+            }
+
+            & .content {
+                position: absolute;
+                right: 100px;
+                width: 70%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                /*um do lado do outro*/
+                justify-content: end;
+                /*joga tudo para o final, como está em coluna fica em sentido baixo*/
+                align-items: end;
+                /*joga td para a direita*/
+                gap: 20px;
+
+                & .car-information {
+                    font-weight: bold;
+                }
+
+                & h2 {
+                    font-size: 8em;
+                    line-height: 1em;
+                    /*altura da linha*/
+                }
+
+                & .description {
+                    color: #d9d9d9;
+                    font-size: 12px;
+                    text-align: right;
+                    max-width: 400px;
+                }
+
+                & .information {
+                    border-radius: 30px;
+                    height: 35px;
+                    width: 120px;
+                    text-transform: uppercase;
+                    border: 2px solid #791fd3;
+                    background-color: #beff1b;
+                    color: #000;
+                    cursor: pointer;
+                    font-weight: bold;
+                    /*deixa em negrito*/
+                }
+
+            }
+
+
+        }
+    }
+
+    .arrows {
+        & button {
+            & img {
+                width: 100px;
+            }
+        }
+    }
+
+    & .indicators {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 200px;
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        gap: 15px;
+
+
+        & .number {
+            font-size: 5em;
+        }
+
+        & ul {
+            display: flex;
+            gap: 10px;
+
+            & li {
+                width: 50px;
+                height: 5px;
+                background-color: #beff1b;
+                border-radius: 5px;
+                transition: 0.5s;
+            }
+
+            & .active {
+              background-color: #fff;  
+            }
+        }
+    }
+}
